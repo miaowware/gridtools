@@ -1,18 +1,18 @@
-{{pkg_name}}
+gridtools
 ============
 
-{{pkg_description}}
+A small Python library to convert between maidenhead grid locators and lat/long coördinates.
 
 Installation
 ------------
 
-``{{pkg_name}}`` requires Python 3.8 at minimum. Install by running::
+``gridtools`` requires Python 3.8 at minimum. Install by running::
 
-    $ pip install {{pkg_name}}
+    $ pip install gridtools
 
 License
 -------
 
-Copyright {{YYYY}} {{authors}}
+Copyright 2020 classabbyamp, 0x5c
 
-Released under the {{license}} License. See ``LICENSE`` for the full license text.
+Released under the BSD 3-Clause License. See ``LICENSE`` for the full license text.

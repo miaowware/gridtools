@@ -17,12 +17,12 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = '{{pkg_name}}'
-copyright = '{{YYYY}}, {{authors}}'
-author = '{{authors}}'
+project = 'gridtools'
+copyright = '2020, classabbyamp, 0x5c'
+author = 'classabbyamp, 0x5c'
 
 # The full version, including alpha/beta/rc tags
-release = '{{version}}'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------

@@ -1,6 +1,6 @@
 import pathlib
 from setuptools import setup
-import {{pkg_name}}.__info__ as info
+import gridtools.__info__ as info
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -18,17 +18,15 @@ setup(
     author=info.__author__,
     author_email=info.__email__,
     license=info.__license__,
-    # NOTE: add classifiers here. See https://pypi.org/pypi?%3Aaction=list_classifiers
+    # TODO: add classifiers here. See https://pypi.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
     ],
-    packages=["{{pkg_name}}"],
+    packages=["gridtools"],
     package_data={
-        # NOTE: if the package has typing annotations, add an empty file named
-        # "py.typed" to the package directory.
-        # "{{pkg_name}}": ["py.typed"]
+        "gridtools": ["py.typed"]
     },
-    # NOTE: add the package's requirements here
+    # TODO: add the package's requirements here
     install_requires=[],
 )
