@@ -1,0 +1,6 @@
+# Tooling
+flake8
+mypy
+twine
+sphinx
+sphinx-autobuild
