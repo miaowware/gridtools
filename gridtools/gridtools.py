@@ -71,7 +71,13 @@ class LatLong:
             raise ValueError
 
     def __str__(self) -> str:
-        return f"{self._lat}, {self._long}"
+        return f"{self._lat:.6f}°, {self._long:.6f}°"
+
+    def __repr__(self) -> str:
+        type_ = type(self)
+        module = type_.__module__
+        qualname = type_.__qualname__
+        return f"<{module}.{qualname} object at {hex(id(self))}, lat={self.lat:.6f}, long={self.long:.6f}>"
 
 
 class Grid:
@@ -194,6 +200,12 @@ class Grid:
 
     def __str__(self) -> str:
         return self.grid
+
+    def __repr__(self) -> str:
+        type_ = type(self)
+        module = type_.__module__
+        qualname = type_.__qualname__
+        return f"<{module}.{qualname} object at {hex(id(self))}, grid={self.grid}, latlong={self.latlong}>"
 
 
 def check_grid(input: str) -> bool:
