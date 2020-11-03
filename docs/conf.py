@@ -65,4 +65,4 @@ autodoc_default_options = {
     "ignore-module-all": None,
 }
 
-autodoc_typehints = "description"
+autodoc_typehints = "none"

@@ -45,9 +45,9 @@ if args.latlong:
         grid = gridtools.Grid(latlong)
         print(f"{latlong} = {grid}")
 
-if args.distance and len(locs := args.distance) == 2:
+if args.distance and len(args.distance) == 2:
     loc_objs: List[Union[gridtools.Grid, gridtools.LatLong]] = []
-    for loc in locs:
+    for loc in args.distance:
         try:
             loc_objs.append(gridtools.Grid(loc))
         except ValueError:
