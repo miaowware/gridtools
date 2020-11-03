@@ -16,8 +16,8 @@ import math
 __all__ = ["Grid", "LatLong", "check_grid", "check_latlong", "distance"]
 
 
-GRID_RE: re.Pattern = re.compile(r"[A-R]{2}(?:\d{2}(?:[A-X]{2}(?:\d{2})?)?)?",
-                                 flags=re.IGNORECASE)
+# matches any valid 2-8 character grid
+GRID_RE: re.Pattern = re.compile(r"[A-R]{2}(?:\d{2}(?:[A-X]{2}(?:\d{2})?)?)?", flags=re.IGNORECASE)
 
 # grid squares are offset of the equator and prime meridian
 OFFSET_LON = 180
@@ -42,31 +42,54 @@ SSQ_ZERO = ord("a")
 
 
 class LatLong:
+    """Represents a latitude/longitude pair.
+
+    :param lat: the latitude
+    :type lat: Union[float, int]
+    :param long: the longitude
+    :type long: Union[float, int]
+    """
     def __init__(self, lat: Union[float, int], long: Union[float, int]) -> None:
-        self._lat: Union[float, int] = 0
-        self._long: Union[float, int] = 0
-        self.lat = lat
-        self.long = long
+        self._lat: float = 0
+        self._long: float = 0
+        self.lat = float(lat)
+        self.long = float(long)
 
     @property
-    def lat(self) -> Union[float, int]:
+    def lat(self) -> float:
+        """
+        :getter: gets the latitude of the object
+        :rtype: float
+
+        :setter: sets the latitude of the object
+        :type: Union[float, int]
+        :raises ValueError: if given an invalid latitude
+        """
         return self._lat
 
     @lat.setter
     def lat(self, new_val: Union[float, int]) -> None:
         if check_latlong(new_val, self._long):
-            self._lat = new_val
+            self._lat = float(new_val)
         else:
             raise ValueError
 
     @property
-    def long(self) -> Union[float, int]:
+    def long(self) -> float:
+        """
+        :getter: gets the longitude of the object
+        :rtype: float
+
+        :setter: sets the longitude of the object
+        :type: Union[float, int]
+        :raises ValueError: if given an invalid longitude
+        """
         return self._long
 
     @long.setter
     def long(self, new_val: Union[float, int]) -> None:
         if check_latlong(self._lat, new_val):
-            self._long = new_val
+            self._long = float(new_val)
         else:
             raise ValueError
 
@@ -81,6 +104,11 @@ class LatLong:
 
 
 class Grid:
+    """Represents a maidenhead grid locator.
+
+    :param input: the grid locator or a :class:`LatLong` object
+    :type: Union[str, LatLong]
+    """
     def __init__(self, input: Union[str, LatLong]):
         self._grid = ""
         self._latlong = LatLong(0, 0)
@@ -91,6 +119,14 @@ class Grid:
 
     @property
     def grid(self) -> str:
+        """
+        :getter: gets the grid locator of the object
+        :rtype: str
+
+        :setter: sets the grid locator of the object
+        :type: str
+        :raises ValueError: if given an invalid grid locator
+        """
         return self._grid
 
     @grid.setter
@@ -103,10 +139,21 @@ class Grid:
 
     @property
     def grid_elements(self) -> Tuple[str, ...]:
+        """
+        :getter: gets the grid locator of the object, divided into each pair.
+        :rtype: Tuple[str, `...`]
+        """
         return tuple([self.grid[i:i + 2] for i in range(0, len(self.grid), 2)])
 
     @property
     def latlong(self) -> LatLong:
+        """
+        :getter: gets the lat/long pair of the object
+        :rtype: LatLong
+
+        :setter: sets the lat/long pair of the object
+        :type: LatLong
+        """
         return self._latlong
 
     @latlong.setter
@@ -115,7 +162,15 @@ class Grid:
         self._grid = self.__calc_grid(self._latlong)
 
     @property
-    def lat(self) -> Union[float, int]:
+    def lat(self) -> float:
+        """
+        :getter: gets the latitude of the object
+        :rtype: float
+
+        :setter: sets the latitude of the object
+        :type: Union[float, int]
+        :raises ValueError: if given an invalid latitude
+        """
         return self.latlong.lat
 
     @lat.setter
@@ -124,7 +179,15 @@ class Grid:
         self._grid = self.__calc_grid(self._latlong)
 
     @property
-    def long(self) -> Union[float, int]:
+    def long(self) -> float:
+        """
+        :getter: gets the longitude of the object
+        :rtype: float
+
+        :setter: sets the longitude of the object
+        :type: Union[float, int]
+        :raises ValueError: if given an invalid longitude
+        """
         return self.latlong.long
 
     @long.setter
@@ -213,7 +276,7 @@ def check_grid(input: str) -> bool:
 
     :param input: the string to check
     :type input: str
-    :return: `True` if `input` is a grid, `False` if not.
+    :return: ``True`` if valid, ``False`` if not.
     :rtype: bool
     """
     return True if re.match(GRID_RE, input) else False
@@ -226,7 +289,7 @@ def check_latlong(lat: Union[float, int], long: Union[float, int]) -> bool:
     :type lat: Union[float, int]
     :param long: the longitude value to check
     :type long: Union[float, int]
-    :return: `True` if valid, `False` if not.
+    :return: ``True`` if valid, ``False`` if not.
     :rtype: bool
     """
     return True if -90 <= lat <= 90 and -180 <= long <= 180 else False
@@ -235,11 +298,11 @@ def check_latlong(lat: Union[float, int], long: Union[float, int]) -> bool:
 def distance(location1: Union[Grid, LatLong], location2: Union[Grid, LatLong]) -> Tuple[float, float]:
     """Finds the great circle distance and bearing between two Grid or LatLong objects.
 
-    :param location1: the location from which to measure
+    :param location1: the location **from** which to measure
     :type location1: Union[Grid, LatLong]
-    :param location2: the location to which to measure
+    :param location2: the location **to** which to measure
     :type location2: Union[Grid, LatLong]
-    :return: the great circle distance (km) and the bearing (degrees) from location1 to location2
+    :return: the great circle distance (in kilometres) and the bearing (in degrees) from location1 to location2
     :rtype: Tuple[float, float]
     """
     RADIUS = 6371

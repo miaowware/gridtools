@@ -64,3 +64,5 @@ autodoc_default_options = {
     "member-order": "bysource",
     "ignore-module-all": None,
 }
+
+autodoc_typehints = "description"
