@@ -146,9 +146,42 @@ class Grid:
         return tuple([self.grid[i:i + 2] for i in range(0, len(self.grid), 2)])
 
     @property
+    def field(self) -> str:
+        """
+        :getter: gets the field of the grid locator of the object, e.g. ``FN``
+        :rtype: str
+        """
+        return self._grid[:2]
+
+    @property
+    def square(self) -> str:
+        """
+        :getter: gets the square of the grid locator of the object, e.g. ``FN01``
+        :rtype: str
+        """
+        return self._grid[:4]
+
+    @property
+    def subsquare(self) -> str:
+        """
+        :getter: gets the subsquare of the grid locator of the object, e.g. ``FN01ce``
+        :rtype: str
+        """
+        return self._grid[:6]
+
+    @property
+    def extended_square(self) -> str:
+        """This is a read-only alias to :attr:`.grid`.
+
+        :getter: gets the extended square of the grid locator of the object, e.g. ``FN01ce24``
+        :rtype: str
+        """
+        return self._grid
+
+    @property
     def latlong(self) -> LatLong:
         """
-        :getter: gets the lat/long pair of the object
+        :getter: gets the lat/long pair of the center of the grid locator of the object
         :rtype: LatLong
 
         :setter: sets the lat/long pair of the object
