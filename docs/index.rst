@@ -65,7 +65,7 @@ API
 
 .. autofunction:: check_grid
 
-.. autofunction:: distance
+.. autofunction:: grid_distance
 
 
 A Note on Precision

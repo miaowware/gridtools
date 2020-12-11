@@ -13,7 +13,7 @@ import re
 import math
 
 
-__all__ = ["Grid", "LatLong", "check_grid", "check_latlong", "distance"]
+__all__ = ["Grid", "LatLong", "check_grid", "check_latlong", "grid_distance"]
 
 
 # matches any valid 2-8 character grid
@@ -138,7 +138,7 @@ class Grid:
             raise ValueError
 
     @property
-    def grid_elements(self) -> Tuple[str, ...]:
+    def elements(self) -> Tuple[str, ...]:
         """
         :getter: gets the grid locator of the object, divided into each pair.
         :rtype: Tuple[str, `...`]
@@ -328,7 +328,7 @@ def check_latlong(lat: Union[float, int], long: Union[float, int]) -> bool:
     return True if -90 <= lat <= 90 and -180 <= long <= 180 else False
 
 
-def distance(location1: Union[Grid, LatLong], location2: Union[Grid, LatLong]) -> Tuple[float, float]:
+def grid_distance(location1: Union[Grid, LatLong], location2: Union[Grid, LatLong]) -> Tuple[float, float]:
     """Finds the great circle distance and bearing between two Grid or LatLong objects.
 
     :param location1: the location **from** which to measure

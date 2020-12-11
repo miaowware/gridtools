@@ -1,4 +1,4 @@
 sphinx
 sphinx-autobuild
-sphinx_py3doc_extended_theme
+sphinx_py3doc_enhanced_theme
 # put package dependencies here

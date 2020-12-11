@@ -5,6 +5,9 @@ on:
 
 name: Deploy Docs
 
+env:
+  FOLDER: gridtools
+
 jobs:
   deploy:
     name: Deploy Docs
@@ -24,12 +27,22 @@ jobs:
           pip install -r requirements.txt
           make html
 
-      - name: Deploy
+      - name: Deploy Version
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.DOCS_DEPLOY_TOKEN }}
           FOLDER: ./docs/_build/html
           REPOSITORY_NAME: miaowware/docs.miaow.io
           BRANCH: gh-pages
-          TARGET_FOLDER: gridtools
+          TARGET_FOLDER: ${FOLDER}/${{ github.ref }}
+          CLEAN: true
+
+      - name: Deploy Latest
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.DOCS_DEPLOY_TOKEN }}
+          FOLDER: ./docs/_build/html
+          REPOSITORY_NAME: miaowware/docs.miaow.io
+          BRANCH: gh-pages
+          TARGET_FOLDER: ${FOLDER}/latest
           CLEAN: true
