@@ -14,7 +14,7 @@ $ pip install gridtools
 
 ## Documentation
 
-Documentation is available on [ReadTheDocs](https://gridtools.readthedocs.io/).
+Documentation is available at [docs.miaow.io/gridtools/](https://docs.miaow.io/gridtools/).
 
 ## Copyright
 

@@ -18,15 +18,20 @@ setup(
     author=info.__author__,
     author_email=info.__email__,
     license=info.__license__,
-    # TODO: add classifiers here. See https://pypi.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: OS Independent",
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Console",
+        "Intended Audience :: Science/Research",
+        "Topic :: Communications :: Ham Radio",
     ],
     packages=["gridtools"],
     package_data={
         "gridtools": ["py.typed"]
     },
-    # TODO: add the package's requirements here
     install_requires=[],
 )
