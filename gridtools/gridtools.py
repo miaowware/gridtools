@@ -72,7 +72,7 @@ class LatLong:
         if check_latlong(new_val, self._long):
             self._lat = float(new_val)
         else:
-            raise ValueError
+            raise ValueError("Invalid latitude given. Must be between -90 and 90 degrees.")
 
     @property
     def long(self) -> float:
@@ -91,7 +91,7 @@ class LatLong:
         if check_latlong(self._lat, new_val):
             self._long = float(new_val)
         else:
-            raise ValueError
+            raise ValueError("Invalid longitude given. Must be between -180 and 180 degrees.")
 
     def __str__(self) -> str:
         return f"{self._lat:.6f}°, {self._long:.6f}°"
@@ -135,7 +135,7 @@ class Grid:
             self._grid = self.__format_grid(new_val)
             self._latlong = self.__calc_latlong(self._grid)
         else:
-            raise ValueError
+            raise ValueError("Invalid grid locator given. Must be in the format 'AA##aa##' (1-4 pairs).")
 
     @property
     def elements(self) -> Tuple[str, ...]:
@@ -289,10 +289,7 @@ class Grid:
         return LatLong(lat, lon)
 
     def __format_grid(self, grid: str) -> str:
-        if check_grid(grid):
-            return grid[:2].upper() + grid[2:].lower()
-        else:
-            raise ValueError
+        return grid[:2].upper() + grid[2:].lower()
 
     def __str__(self) -> str:
         return self.grid

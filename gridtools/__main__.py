@@ -62,5 +62,5 @@ if args.distance and len(args.distance) == 2:
                 break
 
     if len(loc_objs) == 2:
-        dist, bearing = gridtools.distance(*loc_objs)
+        dist, bearing = gridtools.grid_distance(*loc_objs)
         print(f"The distance from {loc_objs[0]} to {loc_objs[1]} is {dist:.1f} km at bearing {bearing:.1f}°")
