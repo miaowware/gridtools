@@ -1,4 +1,4 @@
 sphinx
 sphinx-autobuild
-sphinx_py3doc_enhanced_theme
+-e git+https://github.com/miaowware/miaowware-sphinx-theme.git#egg=miaowware_sphinx_theme
 # put package dependencies here

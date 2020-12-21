@@ -1,5 +1,6 @@
+=========
 gridtools
-============
+=========
 
 A small Python library to convert between maidenhead grid locators and lat/long coördinates.
 
@@ -11,14 +12,14 @@ A small Python library to convert between maidenhead grid locators and lat/long 
     index
 
 Installation
-------------
+============
 
 ``gridtools`` requires Python 3.8 at minimum. Install by running::
 
     $ pip install gridtools
 
 License
--------
+=======
 
 Copyright 2020 classabbyamp, 0x5c
 
@@ -27,7 +28,7 @@ Released under the BSD 3-Clause License. See `LICENSE`_ for the full license tex
 .. _LICENSE: https://github.com/miaowware/gridtools/blob/master/LICENSE
 
 CLI Usage
----------
+=========
 
 ``gridtools`` has a basic CLI interface, which can be run using::
 
@@ -53,7 +54,7 @@ It can be used with the following arguments::
     For example: ``--cl=-12.123,43.21``.
 
 API
----
+===
 
 .. module:: gridtools
 
@@ -67,9 +68,8 @@ API
 
 .. autofunction:: grid_distance
 
-
 A Note on Precision
--------------------
+===================
 
 Although this library outputs grid locators in extended square form by default, that is not always the best choice to use.
 On HF, the most precision needed for most applications is a grid square (e.g. FN01).
