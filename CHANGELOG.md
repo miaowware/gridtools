@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [Unreleased]
+
+
+## [1.0.0] - 2020-12-20
 ### Added
 - `Grid` class to represent a maidenhead grid locator.
 - `LatLong` class to represent a latitude/longitude pair.
@@ -15,8 +18,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A command-line interface.
 
 
-<!-- ## [1.0.0] - YYYY-MM-DD -->
-
-
-<!-- [Unreleased]: https://github.com/miaowware/gridtools/compare/1.0.0...HEAD -->
-<!-- [1.0.0]: https://github.com/miaowware/gridtools/releases/tag/1.0.0 -->
+[Unreleased]: https://github.com/miaowware/gridtools/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/miaowware/gridtools/releases/tag/1.0.0
