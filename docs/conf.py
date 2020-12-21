@@ -13,7 +13,7 @@
 import os
 import sys
 
-import sphinx_py3doc_enhanced_theme
+import miaowware_sphinx_theme
 
 sys.path.insert(0, os.path.abspath(".."))
 
@@ -51,26 +51,18 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = "theme"
-html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path(), "."]
+# html_theme = "bizstyle"
+html_theme = "miaowware"
+html_theme_path = miaowware_sphinx_theme.get_html_theme_path()
 
-html_theme_options = {
-    "bodyfont": "'Lucida Grande',Arial,sans-serif",
-    "headfont": "'Lucida Grande',Arial,sans-serif",
-    "codefont": "monospace,sans-serif",
-    "linkcolor": "#0072AA",
-    "visitedlinkcolor": "#6363bb",
-    "extrastyling": False,
-    "appendcss": "th, dl.field-list > dt { background-color: inherit; }",
-}
-pygments_style = "friendly"
+html_logo = "_static/miaowware_logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ["_static"]
 
-master_doc = "index"
+# master_doc = "index"
 
 # -- Options for autodoc -----------------------------------------------------
 
