@@ -14,10 +14,10 @@ $ pip install gridtools
 
 ## Documentation
 
-Documentation is available at [docs.miaow.io/gridtools/](https://docs.miaow.io/gridtools/).
+Documentation is available at [gridtools.miaow.io](https://gridtools.miaow.io/).
 
 ## Copyright
 
-Copyright 2020 classabbyamp, 0x5c  
+Copyright 2020-2021 classabbyamp, 0x5c  
 Released under the BSD 3-Clause License.  
 See [`LICENSE`](LICENSE) for the full license text.

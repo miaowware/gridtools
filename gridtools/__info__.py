@@ -4,7 +4,7 @@
 
 __project__ = "gridtools"
 __summary__ = "A small Python library to convert between maidenhead grid locators and lat/long coördinates."
-__webpage__ = "https://docs.miaow.io/gridtools/"
+__webpage__ = "https://gridtools.miaow.io/"
 
 __version__ = "1.0.0"
 
